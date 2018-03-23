@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+.container-pushes {
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    font-size: 0;
+}
+
+.container-pushes .push-select {
+    width: 50%;
+    height: 100vh;
+    display: inline-block;
+    font-size: 14px;
+    background-size: cover;
+    background-position: center;
+
+    line-height: 100vh;
+}
+
+.container-pushes .push-select.admin {
+    background-image: url('../img/admin.jpeg');
+
+}
+
+.container-pushes .push-select.salarie {
+    background-image: url('../img/students.jpeg');
+}
+
+.container-pushes .push-select .portal {
+
+    display: inline-block;
+    vertical-align: middle;
+
+    font-size: 50px;
+    font-family: Helvetica, sans-serif;
+
+    color: white;
+
+    line-height: 1;
+}
+
+.container-pushes .push-select .portal h1 {
+    padding: 10px 30px;
+}
+
+.container-pushes .portal:hover h1 {
+    background-color: black;
+}

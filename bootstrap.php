@@ -6,8 +6,9 @@ use Doctrine\ORM\EntityManager;
 require_once 'vendor/autoload.php';
 
 // DB connection configuration
+// TODO : à changer
 $dbParams = array(
-    'host'     => '127.0.0.1',
+    'host'     => 'localhost',
     'driver'   => 'pdo_mysql',
     'user'     => 'root',
     'password' => 'root',
