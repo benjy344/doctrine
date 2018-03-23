@@ -20,9 +20,9 @@ class SalleRepository extends Doctrine\ORM\EntityRepository
           $sessions = $seance->getSessions();
 
           foreach($sessions as $session) {
-              $resa = $session->getReservations();
-              foreach ( $resa as $r ){
-                  $salle = $r->getSalle()->getNom();
+              $reservations = $session->getReservations();
+              foreach ( $reservations as $reservation ){
+                  $salle = $reservation->getSalle()->getNom();
                   $salles[] = $salle;
               }
 
