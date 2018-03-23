@@ -1,0 +1,26 @@
+Matiere:
+    type: entity
+    table: matiere
+    id:
+        idMatiere:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_matiere
+            generator:
+                strategy: IDENTITY
+    fields:
+        nom:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+    oneToMany:
+        seances:
+            targetEntity: seance
+            mappedBy: matiere
+    repositoryClass: MatiereRepository
+    lifecycleCallbacks: {  }

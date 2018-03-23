@@ -1,0 +1,32 @@
+Entreprise:
+    type: entity
+    table: entreprise
+    id:
+        idEntreprise:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_entreprise
+            generator:
+                strategy: IDENTITY
+    fields:
+        nom:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+        adresse:
+            type: string
+            nullable: false
+            length: 250
+            options:
+                fixed: false
+    oneToMany:
+        salaries:
+            targetEntity: salarie
+            mappedBy: entreprise
+    repositoryClass: EntrepriseRepository
+    lifecycleCallbacks: {  }

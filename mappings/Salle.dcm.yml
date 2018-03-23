@@ -1,0 +1,41 @@
+Salle:
+    type: entity
+    table: salle
+    id:
+        idSalle:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_salle
+            generator:
+                strategy: IDENTITY
+    fields:
+        nom:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+        emplacement:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        places:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+        tabeauRoulettes:
+            type: boolean
+            nullable: false
+            column: tabeau_roulettes
+    oneToMany:
+        reservations:
+            targetEntity: reservation
+            mappedBy: salle
+    repositoryClass: SalleRepository
+    lifecycleCallbacks: {  }

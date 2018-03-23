@@ -1,0 +1,57 @@
+Seance:
+    type: entity
+    table: seance
+    id:
+        idSeance:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_seance
+            generator:
+                strategy: IDENTITY
+    fields:
+        idProfesseur:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: id_professeur
+        idMatiere:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: id_matiere
+        nom:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+        contenu:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+    manyToOne:
+        matiere:
+            targetEntity: matiere
+            inversedBy: seance
+            joinColumns:
+                id_matiere:
+                    referencedColumnName: id_matiere
+        titulaire:
+            targetEntity: professeur
+            inversedBy: seance
+            joinColumns:
+                id_professeur:
+                    referencedColumnName: id_professeur
+    oneToMany:
+        sessions:
+            targetEntity: session
+            mappedBy: seance
+    repositoryClass: SeanceRepository
+    lifecycleCallbacks: {  }

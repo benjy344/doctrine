@@ -1,0 +1,18 @@
+{
+  "name": "benjy344/formation",
+  "authors": [
+    {
+      "name": "Benjy344",
+      "email": "demaiziere.benjamin@gmail.com"
+    }
+  ],
+  "require": {
+    "doctrine/orm": "^2.6",
+    "symfony/yaml": "^4.0"
+  },
+  "autoload": {
+    "psr-0": {
+      "": ["Models/", "Repositories/"]
+    }
+  }
+}

@@ -1,0 +1,56 @@
+Note:
+    type: entity
+    table: note
+    id:
+        idNote:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_note
+            generator:
+                strategy: IDENTITY
+    fields:
+        idSalarie:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: id_salarie
+        idSession:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: id_session
+        points:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+        coefficient:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+        denominateur:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+    manyToOne:
+        session:
+            targetEntity: session
+            inversedBy: note
+            joinColumns:
+                id_session:
+                    referencedColumnName: id_session
+        salarie:
+            targetEntity: salarie
+            inversedBy: note
+            joinColumns:
+                id_salarie:
+                    referencedColumnName: id_salarie
+    repositoryClass: NoteRepository
+    lifecycleCallbacks: {  }

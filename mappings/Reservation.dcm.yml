@@ -1,0 +1,53 @@
+Reservation:
+    type: entity
+    table: reservation
+    id:
+        idReservation:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_reservation
+            generator:
+                strategy: IDENTITY
+    fields:
+        idCreneau:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: id_creneau
+        idSalle:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: id_salle
+        idSession:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: id_session
+    manyToOne:
+        creneau:
+            targetEntity: creneau
+            inversedBy: reservation
+            joinColumns:
+                id_creneau:
+                    referencedColumnName: id_creneau
+        salle:
+            targetEntity: salle
+            inversedBy: reservation
+            joinColumns:
+                id_salle:
+                    referencedColumnName: id_salle
+        session:
+            targetEntity: session
+            inversedBy: reservation
+            joinColumns:
+                id_session:
+                    referencedColumnName: id_session
+    repositoryClass: ReservationRepository
+    lifecycleCallbacks: {  }

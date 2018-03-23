@@ -1,0 +1,45 @@
+Salarie:
+    type: entity
+    table: salarie
+    id:
+        idSalarie:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_salarie
+            generator:
+                strategy: IDENTITY
+    fields:
+        idEntreprise:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: id_entreprise
+        prenom:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+        nom:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+    manyToOne:
+        entreprise:
+            targetEntity: entreprise
+            inversedBy: salarie
+            joinColumns:
+                id_entreprise:
+                    referencedColumnName: id_entreprise
+    oneToMany:
+        notes:
+            targetEntity: note
+            mappedBy: salarie
+    repositoryClass: SalarieRepository
+    lifecycleCallbacks: {  }

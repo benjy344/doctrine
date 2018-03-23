@@ -1,0 +1,26 @@
+Creneau:
+    type: entity
+    table: creneau
+    id:
+        idCreneau:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_creneau
+            generator:
+                strategy: IDENTITY
+    fields:
+        debut:
+            type: datetime
+            nullable: false
+        fin:
+            type: datetime
+            nullable: false
+    oneToMany:
+        reservations:
+            targetEntity: reservation
+            mappedBy: creneau
+    repositoryClass: CreneauRepository
+    lifecycleCallbacks: {  }

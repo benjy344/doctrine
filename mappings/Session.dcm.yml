@@ -1,0 +1,61 @@
+Session:
+    type: entity
+    table: session
+    id:
+        idSession:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_session
+            generator:
+                strategy: IDENTITY
+    fields:
+        idProfesseur:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: id_professeur
+        idSeance:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: id_seance
+        compteRendu:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+            column: compte_rendu
+        nom:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+    manyToOne:
+        professeur:
+            targetEntity: professeur
+            inversedBy: session
+            joinColumns:
+                id_professeur:
+                    referencedColumnName: id_professeur
+        seance:
+            targetEntity: seance
+            inversedBy: session
+            joinColumns:
+                id_seance:
+                    referencedColumnName: id_seance
+    oneToMany:
+        notes:
+            targetEntity: note
+            mappedBy: session
+        reservations:
+            targetEntity: reservation
+            mappedBy: session
+    repositoryClass: SessionRepository
+    lifecycleCallbacks: {  }
